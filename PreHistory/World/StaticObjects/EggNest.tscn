@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://drivj2tr88wl1"]
+
+[ext_resource type="Script" path="res://PreHistory/World/StaticObjects/Bush.gd" id="1_sd0j1"]
+[ext_resource type="Texture2D" uid="uid://b2p151q2bmvid" path="res://PreHistory/World/StaticObjects/EggNest.png" id="2_xsxir"]
+[ext_resource type="Texture2D" uid="uid://bly3j48uvjxdr" path="res://GeneralPrefabs/plus_sign.png" id="4_mta75"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sgdc"]
+radius = 9.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eovdm"]
+radius = 36.0555
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf6l2"]
+radius = 35.0571
+
+[node name="EggNest" type="StaticBody2D"]
+script = ExtResource("1_sd0j1")
+empty_path = "res://PreHistory/World/StaticObjects/EggNestEmpty.png"
+default_path = "res://PreHistory/World/StaticObjects/EggNest.png"
+item = "Ovos"
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("2_xsxir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0sgdc")
+
+[node name="DetectionZone" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+visible = false
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_eovdm")
+
+[node name="CollectHurtbox" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_layer = 8192
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectHurtbox"]
+visible = false
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_lf6l2")
+
+[node name="Plus" type="Sprite2D" parent="."]
+position = Vector2(15, -25)
+scale = Vector2(2, 2)
+texture = ExtResource("4_mta75")
+
+[node name="Reset" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="area_entered" from="CollectHurtbox" to="." method="_on_collect_hurtbox_area_entered"]
+[connection signal="timeout" from="Reset" to="." method="_on_reset_timeout"]

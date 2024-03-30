@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bctf5sk60x48"]
+
+[ext_resource type="Texture2D" uid="uid://da8hyrbs0cj2p" path="res://PreHistory/World/StaticObjects/MarshBush.png" id="1_y7xqm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sgdc"]
+radius = 9.0
+height = 34.0
+
+[node name="MarshBush" type="StaticBody2D"]
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_y7xqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0sgdc")

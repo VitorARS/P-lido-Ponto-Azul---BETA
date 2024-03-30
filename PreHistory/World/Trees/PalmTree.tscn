@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq60pcws1q7uq"]
+
+[ext_resource type="Script" path="res://PreHistory/World/Trees/RegularTree.gd" id="1_6j17j"]
+[ext_resource type="Texture2D" uid="uid://cu8jtkrvfxmow" path="res://PreHistory/World/Trees/PalmTreeShadow.png" id="1_l5vme"]
+[ext_resource type="Texture2D" uid="uid://46lt22ruulwy" path="res://PreHistory/World/Trees/PalmTree.png" id="1_pr1um"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dren"]
+size = Vector2(18, 10)
+
+[node name="PalmTree" type="StaticBody2D"]
+collision_mask = 3
+script = ExtResource("1_6j17j")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-9, -3)
+scale = Vector2(2, 2)
+texture = ExtResource("1_l5vme")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(0, -150)
+scale = Vector2(2, 2)
+texture = ExtResource("1_pr1um")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-12, -18)
+shape = SubResource("RectangleShape2D_1dren")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -11)
+collision_mask = 3
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-40, -218, 0, -231, 46, -212, 49, -182, -5, -136, -41, -178)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

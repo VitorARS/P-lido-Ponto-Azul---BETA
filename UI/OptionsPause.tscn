@@ -1,0 +1,272 @@
+[gd_scene load_steps=26 format=3 uid="uid://cel626c00xc5i"]
+
+[ext_resource type="Script" path="res://Menu/Scripts/Options.gd" id="1_pn5p5"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="2_ukryp"]
+[ext_resource type="Texture2D" uid="uid://ccu7ldlb4lgw7" path="res://Menu/Sprites/Buttons/SliderGrabber.png" id="3_jwejq"]
+[ext_resource type="Texture2D" uid="uid://clqb1hr2y7dht" path="res://Menu/Sprites/Buttons/SliderGrabberHighlight.png" id="4_s3o5i"]
+[ext_resource type="Texture2D" uid="uid://c704vb8h2xxog" path="res://Menu/Sprites/Buttons/Slider.png" id="5_3kcu2"]
+[ext_resource type="Texture2D" uid="uid://dokiv5s3vra8p" path="res://Menu/Sprites/Buttons/SliderArea.png" id="6_04kt0"]
+[ext_resource type="Texture2D" uid="uid://clshr25jqx761" path="res://Menu/Sprites/Buttons/CheckBoxChecked.png" id="7_e3ywp"]
+[ext_resource type="Texture2D" uid="uid://c88bcx35es2ty" path="res://Menu/Sprites/Buttons/CheckBox.png" id="8_2cghe"]
+[ext_resource type="Texture2D" uid="uid://lc6fppco04vj" path="res://Menu/Sprites/Buttons/CheckBoxHover.png" id="9_fva4a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0prgv"]
+texture = ExtResource("5_3kcu2")
+texture_margin_top = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cuhpx"]
+texture = ExtResource("6_04kt0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jl8k7"]
+texture = ExtResource("6_04kt0")
+
+[sub_resource type="ImageTexture" id="ImageTexture_skr3y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kldfw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mp0d"]
+texture = ExtResource("8_2cghe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmha3"]
+texture = ExtResource("8_2cghe")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxwcv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6yloq"]
+texture = ExtResource("9_fva4a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55udf"]
+texture = ExtResource("8_2cghe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdbr0"]
+texture = ExtResource("9_fva4a")
+
+[sub_resource type="ImageTexture" id="ImageTexture_m50ut"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_r4nap"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8jnc"]
+texture = ExtResource("8_2cghe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ua3as"]
+texture = ExtResource("8_2cghe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xiu0"]
+texture = ExtResource("8_2cghe")
+
+[node name="OptionsField" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 159.0
+offset_top = 57.0
+offset_right = 643.0
+offset_bottom = 403.0
+script = ExtResource("1_pn5p5")
+
+[node name="Audio" type="Label" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 22.0
+offset_right = 973.0
+offset_bottom = 73.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.647059, 0.345098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 42
+text = "Audio
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Video" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 183.0
+offset_right = 970.0
+offset_bottom = 234.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.647059, 0.345098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 42
+text = "Vídeo
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioLabels" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = -4.0
+offset_top = 67.0
+offset_right = 448.0
+offset_bottom = 256.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 42
+
+[node name="Master" type="Label" parent="AudioLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.709804, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 32
+text = "Master:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="AudioLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.709804, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 32
+text = "Música:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ambient" type="Label" parent="AudioLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.709804, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 32
+text = "Ambiente:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoLabels" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 233.0
+offset_right = 495.0
+offset_bottom = 402.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 32
+
+[node name="Master" type="Label" parent="VideoLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.709804, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 32
+text = "Tela-cheia:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ambient" type="Label" parent="VideoLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.921569, 0.709804, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ukryp")
+theme_override_font_sizes/font_size = 32
+text = "Vsync:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioSliders" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 195.0
+offset_top = 41.0
+offset_right = 310.0
+offset_bottom = 121.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+theme_override_constants/separation = -5
+
+[node name="Master" type="HSlider" parent="AudioSliders"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../Checkboxes/Vsync")
+focus_neighbor_bottom = NodePath("../Music")
+theme_override_icons/grabber = ExtResource("3_jwejq")
+theme_override_icons/grabber_highlight = ExtResource("4_s3o5i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0prgv")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_cuhpx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_jl8k7")
+min_value = -70.0
+max_value = 30.0
+
+[node name="Music" type="HSlider" parent="AudioSliders"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Master")
+focus_neighbor_bottom = NodePath("../Ambient")
+theme_override_icons/grabber = ExtResource("3_jwejq")
+theme_override_icons/grabber_highlight = ExtResource("4_s3o5i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0prgv")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_cuhpx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_jl8k7")
+min_value = -70.0
+max_value = 12.0
+value = -12.0
+
+[node name="Ambient" type="HSlider" parent="AudioSliders"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_bottom = NodePath("../../Checkboxes/Fullscreen")
+theme_override_icons/grabber = ExtResource("3_jwejq")
+theme_override_icons/grabber_highlight = ExtResource("4_s3o5i")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0prgv")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_cuhpx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_jl8k7")
+min_value = -70.0
+max_value = 30.0
+
+[node name="Checkboxes" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 223.0
+offset_right = 242.0
+offset_bottom = 305.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Fullscreen" type="CheckBox" parent="Checkboxes"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../AudioSliders/Ambient")
+theme_override_icons/checked = SubResource("ImageTexture_skr3y")
+theme_override_icons/unchecked = SubResource("CompressedTexture2D_kldfw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4mp0d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lmha3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dxwcv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6yloq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_55udf")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kdbr0")
+
+[node name="Vsync" type="CheckBox" parent="Checkboxes"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../AudioSliders/Master")
+theme_override_icons/checked = SubResource("ImageTexture_m50ut")
+theme_override_icons/unchecked = SubResource("ImageTexture_r4nap")
+theme_override_styles/normal = SubResource("StyleBoxTexture_o8jnc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ua3as")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dxwcv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6yloq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_5xiu0")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kdbr0")
+
+[node name="FullscreenChecked" type="Sprite2D" parent="Checkboxes"]
+position = Vector2(8, 8)
+texture = ExtResource("7_e3ywp")
+
+[node name="VsyncChecked" type="Sprite2D" parent="Checkboxes"]
+position = Vector2(8, 26)
+texture = ExtResource("7_e3ywp")
+
+[connection signal="drag_ended" from="AudioSliders/Master" to="." method="_on_master_drag_ended"]
+[connection signal="drag_started" from="AudioSliders/Master" to="." method="_on_master_drag_started"]
+[connection signal="value_changed" from="AudioSliders/Master" to="." method="_on_master_value_changed"]
+[connection signal="drag_ended" from="AudioSliders/Music" to="." method="_on_music_drag_ended"]
+[connection signal="drag_started" from="AudioSliders/Music" to="." method="_on_music_drag_started"]
+[connection signal="value_changed" from="AudioSliders/Music" to="." method="_on_music_value_changed"]
+[connection signal="drag_ended" from="AudioSliders/Ambient" to="." method="_on_ambient_drag_ended"]
+[connection signal="drag_started" from="AudioSliders/Ambient" to="." method="_on_ambient_drag_started"]
+[connection signal="value_changed" from="AudioSliders/Ambient" to="." method="_on_ambient_value_changed"]
+[connection signal="toggled" from="Checkboxes/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Checkboxes/Vsync" to="." method="_on_vsync_toggled"]

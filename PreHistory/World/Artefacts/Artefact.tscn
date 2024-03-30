@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1rn3xjo645c5"]
+
+[ext_resource type="Script" path="res://PreHistory/World/Artefacts/Artefact.gd" id="1_jx3d1"]
+[ext_resource type="Texture2D" uid="uid://cjrvsigi2tkdr" path="res://PreHistory/World/Artefacts/Argila.png" id="2_ce1g1"]
+[ext_resource type="Texture2D" uid="uid://oyayjdabby3q" path="res://PreHistory/World/Artefacts/ArgilaBlink.png" id="3_cibv2"]
+[ext_resource type="Texture2D" uid="uid://hsu3jslf3uj7" path="res://GeneralPrefabs/plus_sign_blue.png" id="4_unben"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_glv3b"]
+radius = 25.0
+
+[sub_resource type="Animation" id="Animation_8lteb"]
+resource_name = "Blink"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blink:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blink:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_vw0cb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blink:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_awja8"]
+_data = {
+"Blink": SubResource("Animation_8lteb"),
+"RESET": SubResource("Animation_vw0cb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycdm8"]
+radius = 24.3311
+
+[node name="Artefact" type="StaticBody2D"]
+script = ExtResource("1_jx3d1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_ce1g1")
+
+[node name="Blink" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_cibv2")
+hframes = 7
+frame = 1
+
+[node name="DetectZone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectZone"]
+shape = SubResource("CircleShape2D_glv3b")
+
+[node name="BlinkAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_awja8")
+}
+
+[node name="Plus" type="Sprite2D" parent="."]
+position = Vector2(9, -14)
+scale = Vector2(2, 2)
+texture = ExtResource("4_unben")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8192
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_ycdm8")
+
+[connection signal="body_entered" from="DetectZone" to="." method="_on_detect_zone_body_entered"]
+[connection signal="body_exited" from="DetectZone" to="." method="_on_detect_zone_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

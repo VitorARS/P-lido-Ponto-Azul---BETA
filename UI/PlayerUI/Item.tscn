@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dty48txwm2033"]
+
+[ext_resource type="Script" path="res://UI/PlayerUI/Item.gd" id="1_dsoy3"]
+[ext_resource type="Texture2D" uid="uid://bx6elalrr6rok" path="res://UI/ItemIcons/Amoras Silvestres.png" id="2_tgjbl"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="3_wl34w"]
+
+[node name="Item" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -768.0
+offset_bottom = -418.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_dsoy3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 32.0
+texture = ExtResource("2_tgjbl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 14.0
+offset_right = 135.0
+offset_bottom = 102.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.976471, 0.894118, 0.619608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("3_wl34w")
+theme_override_font_sizes/font_size = 32
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true

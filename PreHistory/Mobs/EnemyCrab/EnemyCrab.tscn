@@ -1,0 +1,148 @@
+[gd_scene load_steps=20 format=3 uid="uid://v4nwqhiailf7"]
+
+[ext_resource type="Script" path="res://PreHistory/Mobs/EnemyCrab/EnemyCrab.gd" id="1_ycmen"]
+[ext_resource type="Texture2D" uid="uid://lf3c2uv3wf6x" path="res://PreHistory/Mobs/Crab/crab_shadow.png" id="2_dd07w"]
+[ext_resource type="Texture2D" uid="uid://k7ngejts67b2" path="res://PreHistory/Mobs/Crab/crab_entering.png" id="3_1r5de"]
+[ext_resource type="Texture2D" uid="uid://v5wtd1fr3eyy" path="res://PreHistory/Mobs/Crab/crab.png" id="4_w6eni"]
+[ext_resource type="Script" path="res://PreHistory/Mobs/EnemyCrab/EnemyPlayerDetection.gd" id="5_im2sw"]
+[ext_resource type="Script" path="res://PreHistory/Mobs/Crab/WanderController.gd" id="6_8t2pa"]
+[ext_resource type="Script" path="res://GeneralPrefabs/Mobs/SoftCollision.gd" id="7_ai5kh"]
+[ext_resource type="Script" path="res://GeneralPrefabs/Mobs/Hitbox.gd" id="8_skhti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eweb1"]
+atlas = ExtResource("3_1r5de")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hass6"]
+atlas = ExtResource("3_1r5de")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udiyx"]
+atlas = ExtResource("3_1r5de")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyru4"]
+atlas = ExtResource("4_w6eni")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m7gq"]
+atlas = ExtResource("4_w6eni")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5imwm"]
+atlas = ExtResource("4_w6eni")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utnn4"]
+atlas = ExtResource("4_w6eni")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fksx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eweb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hass6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udiyx")
+}],
+"loop": true,
+"name": &"Entering",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyru4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m7gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5imwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utnn4")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qu88a"]
+radius = 131.095
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omak8"]
+radius = 6.08276
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhu3h"]
+
+[node name="EnemyCrab" type="CharacterBody2D"]
+modulate = Color(0.631373, 0, 0, 1)
+z_index = 2
+script = ExtResource("1_ycmen")
+MAX_SPEED = 80
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_dd07w")
+
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fksx3")
+animation = &"Idle"
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("5_im2sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+visible = false
+shape = SubResource("CircleShape2D_qu88a")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+navigation_layers = 3
+path_postprocessing = 1
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="WanderController" type="Node2D" parent="."]
+script = ExtResource("6_8t2pa")
+
+[node name="Timer" type="Timer" parent="WanderController"]
+one_shot = true
+autostart = true
+
+[node name="SoftCollision" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource("7_ai5kh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoftCollision"]
+visible = false
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_omak8")
+
+[node name="Crab" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+script = ExtResource("8_skhti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crab"]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_xhu3h")
+
+[connection signal="body_entered" from="PlayerDetection" to="PlayerDetection" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="PlayerDetection" method="_on_body_exited"]
+[connection signal="timeout" from="WanderController/Timer" to="WanderController" method="_on_timer_timeout"]

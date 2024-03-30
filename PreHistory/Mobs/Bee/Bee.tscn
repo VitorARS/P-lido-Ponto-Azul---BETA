@@ -1,0 +1,373 @@
+[gd_scene load_steps=26 format=3 uid="uid://c8iinc28ec8a0"]
+
+[ext_resource type="Script" path="res://PreHistory/Mobs/Bee/Bee.gd" id="1_naauv"]
+[ext_resource type="PackedScene" uid="uid://d3r75nv4r36h0" path="res://GeneralPrefabs/Mobs/Hitbox.tscn" id="3_h7fni"]
+[ext_resource type="PackedScene" path="res://GeneralPrefabs/Mobs/SoftCollision.tscn" id="4_ts6dc"]
+[ext_resource type="Texture2D" uid="uid://daqkho4t2nl4l" path="res://PreHistory/Mobs/Bee/FlyFront.png" id="4_w4lgo"]
+[ext_resource type="Texture2D" uid="uid://dukwjap4jthc5" path="res://PreHistory/Mobs/Bee/FlyLeft.png" id="5_n80g2"]
+[ext_resource type="Texture2D" uid="uid://bwi3xn3uvnsj0" path="res://PreHistory/Mobs/Bee/FlyRight.png" id="6_t7uk3"]
+[ext_resource type="Texture2D" uid="uid://cd6sclex223ja" path="res://PreHistory/Mobs/Bee/FlyBack.png" id="7_4g7nh"]
+[ext_resource type="PackedScene" path="res://GeneralPrefabs/Mobs/Hurtbox.tscn" id="8_fgqen"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5wap"]
+radius = 78.0256
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2n8xt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22fj3"]
+radius = 14.1421
+
+[sub_resource type="Animation" id="Animation_b7x6b"]
+resource_name = "FlyBack"
+length = 3.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_4g7nh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_default_Sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_krnqx"]
+resource_name = "FlyFront"
+length = 3.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_w4lgo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_default_Sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nvxx3"]
+resource_name = "FlyLeft"
+length = 3.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_n80g2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_default_Sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vqc78"]
+resource_name = "FlyRight"
+length = 3.2
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_t7uk3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_default_Sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_u0vda"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fd6m"]
+_data = {
+"FlyBack": SubResource("Animation_b7x6b"),
+"FlyFront": SubResource("Animation_krnqx"),
+"FlyLeft": SubResource("Animation_nvxx3"),
+"FlyRight": SubResource("Animation_vqc78"),
+"RESET": SubResource("Animation_u0vda")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58nb6"]
+animation = &"FlyLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_do4nm"]
+animation = &"FlyRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dveeq"]
+animation = &"FlyFront"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_emgh8"]
+animation = &"FlyBack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_c7yyp"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_58nb6")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_do4nm")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_dveeq")
+blend_point_2/pos = Vector2(0, 1.1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_emgh8")
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1i2ls"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x0tpx"]
+states/Fly/node = SubResource("AnimationNodeBlendSpace2D_c7yyp")
+states/Fly/position = Vector2(309.333, 94)
+states/Start/position = Vector2(198.667, 94.6667)
+transitions = ["Start", "Fly", SubResource("AnimationNodeStateMachineTransition_1i2ls")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ax1he"]
+radius = 17.1172
+
+[node name="Bee" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_naauv")
+MAX_SPEED = 38
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_max_distance = 200.0
+debug_path_custom_color = Color(0.890196, 0, 0.0313726, 1)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_g5wap")
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Bee" parent="." instance=ExtResource("3_h7fni")]
+position = Vector2(-3, -3)
+collision_layer = 128
+collision_mask = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Bee"]
+position = Vector2(2, 2)
+shape = SubResource("CircleShape2D_2n8xt")
+
+[node name="SoftCollision" parent="." instance=ExtResource("4_ts6dc")]
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+shape = SubResource("CircleShape2D_22fj3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7fd6m")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 19)
+scale = Vector2(2, 2)
+texture = ExtResource("6_t7uk3")
+hframes = 2
+frame = 1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_x0tpx")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Fly/blend_position = Vector2(-0.725119, 0.211046)
+
+[node name="Hurtbox" parent="." instance=ExtResource("8_fgqen")]
+collision_layer = 2048
+collision_mask = 256
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_ax1he")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.415
+max_distance = 200.0
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+
+[editable path="SoftCollision"]
+[editable path="Hurtbox"]

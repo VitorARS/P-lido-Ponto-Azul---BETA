@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://dna1e7utiyrjc"]
+
+[ext_resource type="Texture2D" uid="uid://c4dvqwc866bjc" path="res://UI/PlayerUI/HeartUIEmpty.png" id="1_0nybt"]
+[ext_resource type="Script" path="res://UI/PlayerUI/Health.gd" id="1_7cfbs"]
+[ext_resource type="Texture2D" uid="uid://dppc18ogiipth" path="res://UI/PlayerUI/HeartUIFull.png" id="2_f57iw"]
+[ext_resource type="Texture2D" uid="uid://chxcxkx4775yq" path="res://UI/Boxes&Background/DefaultTextBox.png" id="4_rpqfg"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="5_s5bpo"]
+
+[node name="Health" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -586.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7cfbs")
+
+[node name="HeartEmpty" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 102.0
+offset_bottom = 22.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_0nybt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="HeartFull" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 102.0
+offset_bottom = 22.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_f57iw")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Regenerate" type="Timer" parent="."]
+
+[node name="Info" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.548
+anchor_top = 1.155
+anchor_right = 1.647
+anchor_bottom = 1.911
+offset_left = 148.072
+offset_top = -12.92
+offset_right = -225.658
+offset_bottom = -14.72
+scale = Vector2(2, 2)
+texture = ExtResource("4_rpqfg")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 270.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 4
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("5_s5bpo")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "
+[center]Essa é a sua [color=#da2a2a]Saúde.[/color]Tome cuidado e nunca perca todos os corações.[/center] 
+"
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

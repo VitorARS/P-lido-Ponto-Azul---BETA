@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmxu4r6tek6mp"]
+
+[ext_resource type="Script" path="res://PreHistory/World/StaticObjects/GrassFx.gd" id="1_nheoj"]
+[ext_resource type="Texture2D" uid="uid://cfsc4dy10mnhn" path="res://PreHistory/World/StaticObjects/grass_fx.png" id="2_rq6g3"]
+[ext_resource type="AudioStream" uid="uid://c7bgh7dsfhi3b" path="res://SoundFx/GrassDestroyed.wav" id="3_wmck3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxld0"]
+atlas = ExtResource("2_rq6g3")
+region = Rect2(0, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2chef"]
+atlas = ExtResource("2_rq6g3")
+region = Rect2(35, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rblgu"]
+atlas = ExtResource("2_rq6g3")
+region = Rect2(70, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ccus"]
+atlas = ExtResource("2_rq6g3")
+region = Rect2(105, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmel4"]
+atlas = ExtResource("2_rq6g3")
+region = Rect2(140, 0, 35, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8t86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxld0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2chef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rblgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ccus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmel4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GrassFx" type="StaticBody2D"]
+script = ExtResource("1_nheoj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_u8t86")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wmck3")
+volume_db = -6.0
+autoplay = true
+bus = &"Ambient"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

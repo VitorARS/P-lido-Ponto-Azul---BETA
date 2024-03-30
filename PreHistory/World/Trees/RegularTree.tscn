@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b37vrlg118pwc"]
+
+[ext_resource type="Script" path="res://PreHistory/World/Trees/RegularTree.gd" id="1_hcfcv"]
+[ext_resource type="Texture2D" uid="uid://snx8u66rapws" path="res://PreHistory/World/Trees/RegularTree.png" id="1_r2edd"]
+[ext_resource type="Texture2D" uid="uid://cfky0qo657lxm" path="res://PreHistory/World/Trees/TreeShadow.png" id="2_8pxjj"]
+
+[node name="RegularTree" type="StaticBody2D"]
+script = ExtResource("1_hcfcv")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(3.53, 0)
+scale = Vector2(1.64156, 1.74167)
+texture = ExtResource("2_8pxjj")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+scale = Vector2(2, 2)
+texture = ExtResource("1_r2edd")
+
+[node name="tronco" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -62)
+polygon = PackedVector2Array(-29, 53, -2, 56, 30, 50, 26, 44, 15, 39, -1, 39, -16, 39)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -62)
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-63, -46, 1, -5, 69, -57, 64, -104, 37, -145, -8, -175, -33, -147, -59, -93)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

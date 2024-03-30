@@ -1,0 +1,1347 @@
+[gd_scene load_steps=29 format=3 uid="uid://cux11tjc8eqp6"]
+
+[ext_resource type="Script" path="res://Menu/Scripts/menu.gd" id="1_lpuwn"]
+[ext_resource type="Texture2D" uid="uid://d03mdsvvj5wye" path="res://Menu/Sprites/Cinematic/MenuOdisseyNew1.png" id="2_xew03"]
+[ext_resource type="Texture2D" uid="uid://7c06ugqcbkeo" path="res://Menu/Sprites/Cinematic/MenuOdisseyNew2.png" id="3_b3lvx"]
+[ext_resource type="Texture2D" uid="uid://cqvbw3ma3m2ox" path="res://Menu/Sprites/Cinematic/BirdMenu.png" id="4_yolgd"]
+[ext_resource type="Texture2D" uid="uid://mlylxwoai5rr" path="res://Menu/Sprites/Cinematic/BirdMenu2.png" id="5_utjv3"]
+[ext_resource type="Texture2D" uid="uid://6at5nrdswxtl" path="res://Menu/Sprites/Cinematic/SaibaMaisTransition.png" id="6_mdc76"]
+[ext_resource type="Texture2D" uid="uid://4c63mmr0oanh" path="res://Menu/Sprites/Cinematic/OptionsTransition.png" id="7_l85vj"]
+[ext_resource type="Texture2D" uid="uid://cswyxj5osvdxu" path="res://Menu/Sprites/Cinematic/JogarTransition.png" id="8_5yeq7"]
+[ext_resource type="AudioStream" uid="uid://bkpmwra5whca0" path="res://Soundtrack/PalidoPontoAzul.ogg" id="9_t3157"]
+[ext_resource type="Texture2D" uid="uid://dxp5akqdc216c" path="res://Menu/Sprites/Buttons/WoodenBoxBig.png" id="10_t7ach"]
+[ext_resource type="Texture2D" uid="uid://cd3cu2hce0kut" path="res://Menu/Sprites/Buttons/WoodenBoxBigPressed.png" id="11_dpg8d"]
+[ext_resource type="Texture2D" uid="uid://erhl64pwx1vj" path="res://Menu/Sprites/Buttons/WoodenBoxBigHover.png" id="12_ybj3u"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="13_1jmj7"]
+[ext_resource type="Texture2D" uid="uid://ictch4gi8k1o" path="res://Menu/Sprites/Cinematic/MenuLogoPergamun.png" id="14_b52i6"]
+[ext_resource type="Texture2D" uid="uid://do0qmibrflru2" path="res://Menu/Sprites/ScreenElements/OptionsScreen.png" id="15_sj5os"]
+[ext_resource type="PackedScene" uid="uid://cel626c00xc5i" path="res://UI/OptionsPause.tscn" id="16_7808l"]
+[ext_resource type="Texture2D" uid="uid://drmgakdayunq" path="res://Menu/Sprites/Buttons/ReturnArrowWood.png" id="24_2dste"]
+[ext_resource type="Texture2D" uid="uid://bgbaynmwai2ux" path="res://Menu/Sprites/Buttons/ReturnArrrowWoodHover.png" id="25_o4vt3"]
+[ext_resource type="Texture2D" uid="uid://vni7fysfp1ub" path="res://Menu/Sprites/ScreenElements/LevelsScreen.png" id="26_m6i1n"]
+[ext_resource type="Texture2D" uid="uid://bxrc2srws3t8g" path="res://Menu/Sprites/Buttons/LevelsWoodButton.png" id="27_kqolr"]
+[ext_resource type="Texture2D" uid="uid://je6tiyybbypm" path="res://Menu/Sprites/Buttons/LevelsWoodButtonHover.png" id="28_d2qei"]
+
+[sub_resource type="Animation" id="Animation_rmgqk"]
+resource_name = "Begin"
+length = 17.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.56, 10, 13.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_xew03"), ExtResource("3_b3lvx"), ExtResource("4_yolgd"), ExtResource("5_utjv3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.56, 10, 13.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 24, 21, 21]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cinematic:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.66, 2.8, 2.96, 3.1, 3.26, 3.4, 3.56, 3.7, 3.86, 4, 4.16, 4.3, 4.46, 4.6, 5.06, 5.2, 5.36, 5.5, 5.66, 5.8, 5.96, 6.1, 6.26, 6.4, 6.56, 6.7, 6.86, 7, 7.16, 7.3, 7.46, 7.6, 7.76, 7.9, 8.06, 8.2, 8.36, 8.5, 8.66, 8.8, 8.96, 9.1, 9.26, 9.4, 9.56, 9.7, 9.86, 10, 10.16, 10.3, 10.46, 10.6, 10.76, 10.9, 11.06, 11.2, 11.36, 11.5, 11.66, 11.8, 11.96, 12.1, 12.26, 12.4, 12.56, 12.7, 12.86, 13, 13.16, 13.3, 13.46, 13.6, 13.76, 13.9, 14.06, 14.2, 14.36, 14.5, 14.66, 14.8, 14.96, 15.1, 15.26, 15.4, 15.56, 15.7, 15.86, 16, 16.16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main/Pergamum:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(15.5, 15.6, 15.7, 15.8, 15.9, 16, 16.1, 16.2, 16.3, 16.4, 16.5, 16.6, 16.7, 16.8, 16.9, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main/Pergamum:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(15.5, 16.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.294118), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(17),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"admit_skip"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Main:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 15.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Main/Buttons:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(15.5, 16.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("KnowMore:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Play:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Main:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Options:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wmavk"]
+resource_name = "KnowMore"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_mdc76")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Options/OptionsField:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-40, 0), Vector2(-80, 0), Vector2(-120, 0), Vector2(-160, 0), Vector2(-200, 0), Vector2(-240, 0), Vector2(-280, 0), Vector2(-320, 0), Vector2(-360, 0), Vector2(-400, 0), Vector2(-440, 0), Vector2(-480, 0), Vector2(-520, 0), Vector2(-560, 0), Vector2(-600, 0), Vector2(-640, 0), Vector2(-680, 0), Vector2(-720, 0), Vector2(-760, 0), Vector2(-800, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Options:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Play:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KnowMore:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("KnowMore/RollingPergamum:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("KnowMore/RollingPergamum:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ColorRect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("KnowMore/Info:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8hwto"]
+resource_name = "Options"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_l85vj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Options/RollingPergamum:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Options/OptionsField:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Options/OptionsField:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Play:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KnowMore:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Options:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Main:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(44.4444, 0), Vector2(88.8889, 0), Vector2(133.333, 0), Vector2(177.778, 0), Vector2(222.222, 0), Vector2(266.667, 0), Vector2(311.111, 0), Vector2(355.556, 0), Vector2(400, 0), Vector2(444.444, 0), Vector2(488.889, 0), Vector2(533.333, 0), Vector2(577.778, 0), Vector2(622.222, 0), Vector2(666.667, 0), Vector2(711.111, 0), Vector2(755.556, 0), Vector2(800, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Options/RollingPergamum:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Options/Return:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1.8, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColorRect:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_asywg"]
+resource_name = "Play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_5yeq7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Options:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnowMore:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Play:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 45), Vector2(0, 90), Vector2(0, 135), Vector2(0, 180), Vector2(0, 225), Vector2(0, 270), Vector2(0, 315), Vector2(0, 360), Vector2(0, 405), Vector2(0, 450)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Main/Pergamum:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Main/Pergamum:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Play:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_edrk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnowMore/Info:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cinematic:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cinematic:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Options:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qt4xa"]
+resource_name = "Skip"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_utjv3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [21]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main/Pergamum:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main/Pergamum:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.298039), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Main/Pergamum:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Main:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Options:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Play:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("KnowMore:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Main/Buttons:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Main:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ColorRect:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"admit_skip"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_laaij"]
+_data = {
+"Begin": SubResource("Animation_rmgqk"),
+"KnowMore": SubResource("Animation_wmavk"),
+"Options": SubResource("Animation_8hwto"),
+"Play": SubResource("Animation_asywg"),
+"RESET": SubResource("Animation_edrk6"),
+"Skip": SubResource("Animation_qt4xa")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -800.0
+offset_bottom = -450.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpuwn")
+metadata/_edit_vertical_guides_ = [2.0]
+
+[node name="Anotations" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12000.0
+offset_top = 12000.0
+offset_right = 12001.0
+offset_bottom = 12023.0
+text = "176- 193"
+
+[node name="Cinematic" type="Sprite2D" parent="."]
+position = Vector2(400, 225)
+scale = Vector2(2, 2)
+texture = ExtResource("7_l85vj")
+hframes = 20
+frame = 1
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_laaij")
+}
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_t3157")
+bus = &"Music"
+
+[node name="SoundFx" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="Control" parent="Main"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 275.0
+offset_right = 800.0
+offset_bottom = 395.0
+
+[node name="HBox" type="HBoxContainer" parent="Main/Buttons"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 400.0
+offset_bottom = 115.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Options" type="TextureButton" parent="Main/Buttons/HBox"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../KnowMore")
+focus_neighbor_right = NodePath("../Play")
+texture_normal = ExtResource("10_t7ach")
+texture_pressed = ExtResource("11_dpg8d")
+texture_hover = ExtResource("12_ybj3u")
+texture_focused = ExtResource("12_ybj3u")
+
+[node name="Label" type="Label" parent="Main/Buttons/HBox/Options"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 236.0
+offset_bottom = 59.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 26
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="TextureButton" parent="Main/Buttons/HBox"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Options")
+focus_neighbor_right = NodePath("../KnowMore")
+texture_normal = ExtResource("10_t7ach")
+texture_pressed = ExtResource("11_dpg8d")
+texture_hover = ExtResource("12_ybj3u")
+texture_focused = ExtResource("12_ybj3u")
+
+[node name="Label" type="Label" parent="Main/Buttons/HBox/Play"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 237.0
+offset_bottom = 59.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 26
+text = "Jogar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KnowMore" type="TextureButton" parent="Main/Buttons/HBox"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Play")
+focus_neighbor_right = NodePath("../Options")
+texture_normal = ExtResource("10_t7ach")
+texture_pressed = ExtResource("11_dpg8d")
+texture_hover = ExtResource("12_ybj3u")
+texture_focused = ExtResource("12_ybj3u")
+
+[node name="Label" type="Label" parent="Main/Buttons/HBox/KnowMore"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 152.0
+offset_bottom = 59.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 22
+text = "Saiba "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Main/Buttons/HBox/KnowMore"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 7.0
+offset_right = 153.0
+offset_bottom = 59.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 22
+text = "mais"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pergamum" type="Sprite2D" parent="Main"]
+modulate = Color(1, 1, 1, 0.294118)
+position = Vector2(400, 125)
+scale = Vector2(2, 2)
+texture = ExtResource("14_b52i6")
+hframes = 16
+frame = 15
+
+[node name="Options" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RollingPergamum" type="Sprite2D" parent="Options"]
+position = Vector2(400, 228)
+scale = Vector2(2, 2)
+texture = ExtResource("15_sj5os")
+hframes = 5
+frame = 4
+
+[node name="OptionsField" parent="Options" instance=ExtResource("16_7808l")]
+
+[node name="Return" type="TextureButton" parent="Options"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 34.0
+offset_bottom = 25.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("24_2dste")
+texture_hover = ExtResource("25_o4vt3")
+texture_focused = ExtResource("25_o4vt3")
+flip_h = true
+
+[node name="Play" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 42.0
+offset_top = 9.0
+offset_right = 82.0
+offset_bottom = 49.0
+
+[node name="LevelScreen" type="Sprite2D" parent="Play"]
+position = Vector2(358, 226)
+scale = Vector2(2, 2)
+texture = ExtResource("26_m6i1n")
+
+[node name="LevelButtons" type="Control" parent="Play"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 134.0
+offset_top = 185.0
+offset_right = 665.0
+offset_bottom = 460.0
+
+[node name="PreHistory" type="TextureButton" parent="Play/LevelButtons"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 22.0
+scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../../Return")
+texture_normal = ExtResource("27_kqolr")
+texture_hover = ExtResource("28_d2qei")
+texture_focused = ExtResource("28_d2qei")
+
+[node name="Label" type="Label" parent="Play/LevelButtons/PreHistory"]
+layout_mode = 0
+offset_left = 8.5
+offset_top = 6.5
+offset_right = 344.5
+offset_bottom = 37.5
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 24
+text = "Pré-História"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ancient" type="TextureButton" parent="Play/LevelButtons"]
+layout_mode = 0
+offset_left = 259.0
+offset_right = 359.0
+offset_bottom = 22.0
+scale = Vector2(2, 2)
+disabled = true
+texture_normal = ExtResource("27_kqolr")
+texture_hover = ExtResource("28_d2qei")
+texture_focused = ExtResource("28_d2qei")
+
+[node name="Label" type="Label" parent="Play/LevelButtons/Ancient"]
+layout_mode = 0
+offset_left = 8.5
+offset_top = 6.5
+offset_right = 344.5
+offset_bottom = 37.5
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 25
+text = "Idade Antiga"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Medieval" type="TextureButton" parent="Play/LevelButtons"]
+layout_mode = 0
+offset_top = 162.0
+offset_right = 100.0
+offset_bottom = 184.0
+scale = Vector2(2, 2)
+disabled = true
+texture_normal = ExtResource("27_kqolr")
+texture_hover = ExtResource("28_d2qei")
+texture_focused = ExtResource("28_d2qei")
+
+[node name="Label" type="Label" parent="Play/LevelButtons/Medieval"]
+layout_mode = 0
+offset_left = 8.5
+offset_top = 6.5
+offset_right = 344.5
+offset_bottom = 37.5
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 25
+text = "Idade Média"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Modern" type="TextureButton" parent="Play/LevelButtons"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 164.0
+offset_right = 358.0
+offset_bottom = 186.0
+scale = Vector2(2, 2)
+disabled = true
+texture_normal = ExtResource("27_kqolr")
+texture_hover = ExtResource("28_d2qei")
+texture_focused = ExtResource("28_d2qei")
+
+[node name="Label" type="Label" parent="Play/LevelButtons/Modern"]
+layout_mode = 0
+offset_left = 8.5
+offset_top = 6.5
+offset_right = 344.5
+offset_bottom = 37.5
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 25
+text = "Idade Moderna"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Return" type="TextureButton" parent="Play"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 16.0
+rotation = 1.5708
+scale = Vector2(2, 2)
+focus_neighbor_right = NodePath("../LevelButtons/PreHistory")
+texture_normal = ExtResource("24_2dste")
+texture_hover = ExtResource("25_o4vt3")
+texture_focused = ExtResource("25_o4vt3")
+flip_h = true
+
+[node name="Select" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 40.0
+offset_right = 1695.0
+offset_bottom = 127.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.501961, 0.321569, 0.219608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 84
+text = "Selecione uma Era:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KnowMore" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 56.0
+offset_bottom = 49.0
+
+[node name="RollingPergamum" type="Sprite2D" parent="KnowMore"]
+position = Vector2(385, 219)
+scale = Vector2(2, 2)
+texture = ExtResource("15_sj5os")
+hframes = 5
+frame = 4
+
+[node name="Info" type="Control" parent="KnowMore"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Return" type="TextureButton" parent="KnowMore/Info"]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("24_2dste")
+texture_hover = ExtResource("25_o4vt3")
+texture_focused = ExtResource("25_o4vt3")
+
+[node name="Text" type="Label" parent="KnowMore/Info"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 74.0
+offset_right = 1939.0
+offset_bottom = 1278.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.921569, 0.709804, 0.447059, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_constants/line_spacing = 26
+theme_override_fonts/font = ExtResource("13_1jmj7")
+theme_override_font_sizes/font_size = 38
+text = "Pálido Ponto Azul é um jogo educativo que visa auxiliar no ensino de história. Ele é um TCC do IFC-CAS. O projeto foi desenvolvido por Vitor Alexandre Rodrigues da Silva.
+	 A origem do nome vem do discurso de Carl Sagan sobre a fotografia da Terra tirada em 1990 pela sonda Voyager 1, de uma distância de 6 bilhões de quilômetros. Nela, o tamanho aparente da terra é menor do que um pixel. Destaco aqui trabalhos como: Stardew Valley, Minecraft, Cosmos e Sapiens, que foram grandes inspirações que tentei incoporar no meu projeto. Além disso, deixo  meus agradecimentos a Vanderlei Freitas Júnior e Anderson Sartori, meus orientadores. Espero que você goste dessa aventura, e principalmente, que aprenda algo!
+
+- Com carinho, Vitor Alexandre, 2024."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[connection signal="focus_entered" from="Main/Buttons/HBox/Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="Main/Buttons/HBox/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="Main/Buttons/HBox/Options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="Main/Buttons/HBox/Play" to="." method="_on_play_focus_entered"]
+[connection signal="mouse_entered" from="Main/Buttons/HBox/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Main/Buttons/HBox/Play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="Main/Buttons/HBox/KnowMore" to="." method="_on_know_more_focus_entered"]
+[connection signal="mouse_entered" from="Main/Buttons/HBox/KnowMore" to="." method="_on_know_more_mouse_entered"]
+[connection signal="pressed" from="Main/Buttons/HBox/KnowMore" to="." method="_on_know_more_pressed"]
+[connection signal="mouse_entered" from="Options/Return" to="." method="_on_options_return_mouse_entered"]
+[connection signal="pressed" from="Options/Return" to="." method="_on_options_return_pressed"]
+[connection signal="pressed" from="Play/LevelButtons/PreHistory" to="." method="_on_pre_history_pressed"]
+[connection signal="pressed" from="Play/Return" to="." method="_on_play_return_pressed"]
+[connection signal="mouse_entered" from="KnowMore/Info/Return" to="." method="_on_know_more_return_mouse_entered"]
+[connection signal="pressed" from="KnowMore/Info/Return" to="." method="_on_know_more_return_pressed"]

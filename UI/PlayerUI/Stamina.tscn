@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://djry0iefvham"]
+
+[ext_resource type="Texture2D" uid="uid://bbn666sikord0" path="res://UI/PlayerUI/StaminaCircleWhite.png" id="1_hm8aj"]
+[ext_resource type="Script" path="res://UI/PlayerUI/Stamina.gd" id="2_rlxfe"]
+[ext_resource type="Texture2D" uid="uid://chxcxkx4775yq" path="res://UI/Boxes&Background/MissionTextbox.png" id="3_1w7j6"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="4_yy74k"]
+
+[sub_resource type="Animation" id="Animation_1b7y4"]
+resource_name = "Full"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:tint_over")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.764706), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5s6fn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:tint_over")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgb7q"]
+_data = {
+"Full": SubResource("Animation_1b7y4"),
+"RESET": SubResource("Animation_5s6fn")
+}
+
+[node name="Stamina" type="TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = -752.0
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+max_value = 1000.0
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("1_hm8aj")
+texture_over = ExtResource("1_hm8aj")
+texture_progress = ExtResource("1_hm8aj")
+tint_under = Color(0.137255, 0.137255, 0.137255, 0.658824)
+tint_progress = Color(0.247059, 1, 0.258824, 1)
+script = ExtResource("2_rlxfe")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jgb7q")
+}
+
+[node name="Damage" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="Info" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.548
+anchor_top = 1.155
+anchor_right = 1.647
+anchor_bottom = 1.911
+offset_left = 11.536
+offset_top = -1.46
+offset_right = 27.296
+offset_bottom = 13.348
+texture = ExtResource("3_1w7j6")
+region_rect = Rect2(2, 1.9462, 45.2135, 47.0538)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 244.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 4
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("4_yy74k")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Essa é a sua [color=#3fff42]Stamina.[/color][/center] Seu atual valor é: 1000. Coma para aumentar esse valor, nunca deixe-o chegar em 0!
+"
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Damage" to="." method="_on_damage_timeout"]

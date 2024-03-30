@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd13mxyy8r5qa"]
+
+[ext_resource type="Script" path="res://GeneralPrefabs/Dialogue/Dialogue.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bt0iowiludw44" path="res://GeneralPrefabs/Dialogue/DialogueBox.png" id="2_m6hdu"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="3_osbey"]
+
+[sub_resource type="Animation" id="Animation_1il37"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pb1ba"]
+resource_name = "TransitionIN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_av1x8"]
+resource_name = "TransitionOUT"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjsjm"]
+_data = {
+"RESET": SubResource("Animation_1il37"),
+"TransitionIN": SubResource("Animation_pb1ba"),
+"TransitionOUT": SubResource("Animation_av1x8")
+}
+
+[node name="Dialogue" type="CanvasLayer"]
+layer = 2
+script = ExtResource("2")
+interaction = Array[String](["", ""])
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DialogueBox" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 201.0
+offset_right = 451.0
+offset_bottom = 345.0
+scale = Vector2(1.75, 1.75)
+mouse_filter = 2
+texture = ExtResource("2_m6hdu")
+
+[node name="BodyText" type="RichTextLabel" parent="Control/DialogueBox"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 21.0
+offset_right = 1182.0
+offset_bottom = 415.0
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/line_separation = 12
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("3_osbey")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "
+[center]Parece que alguém passou por aqui... [/center]"
+visible_characters_behavior = 1
+
+[node name="Character" type="Label" parent="Control/DialogueBox"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 102.0
+offset_right = 288.0
+offset_bottom = 172.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_osbey")
+theme_override_font_sizes/font_size = 32
+text = "Seigan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Portrait" type="TextureRect" parent="Control/DialogueBox"]
+layout_mode = 0
+offset_left = 25.1429
+offset_top = 29.7143
+offset_right = 97.1429
+offset_bottom = 97.7143
+mouse_filter = 2
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sjsjm")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

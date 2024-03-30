@@ -1,0 +1,425 @@
+[gd_scene load_steps=30 format=3 uid="uid://d2hvscuiu6tr1"]
+
+[ext_resource type="Texture2D" uid="uid://bmuqd4vw1rv23" path="res://UI/Sprites/Mission/MissionButton.png" id="1_7m01n"]
+[ext_resource type="Script" path="res://UI/Mission.gd" id="1_boy8o"]
+[ext_resource type="Texture2D" uid="uid://brsfhhhdivjtv" path="res://UI/Sprites/Mission/MissionButtonHover.png" id="2_b2l56"]
+[ext_resource type="Texture2D" uid="uid://chxcxkx4775yq" path="res://UI/Boxes&Background/DefaultTextBox.png" id="3_n2oki"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="4_jeges"]
+[ext_resource type="Texture2D" uid="uid://dilxcj01g2uqe" path="res://UI/Boxes&Background/Parchment_V.png" id="6_masr1"]
+[ext_resource type="Texture2D" uid="uid://turq6dlokdmt" path="res://UI/Sprites/Mission/MissionArrow.png" id="7_04d8x"]
+[ext_resource type="Texture2D" uid="uid://clkxo165q8b3f" path="res://UI/Sprites/Mission/CheckBoxCompleted.png" id="8_ri22s"]
+[ext_resource type="Texture2D" uid="uid://7b7lv6eutj5w" path="res://UI/Sprites/Mission/CheckBox.png" id="9_4j38t"]
+[ext_resource type="Texture2D" uid="uid://cng0whrnwptxo" path="res://UI/Sprites/Mission/MissionButtonAlert.png" id="10_0qol5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiox6"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc26t"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo65x"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1go4"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_836ky"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ybdt"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vs3x"]
+atlas = ExtResource("7_04d8x")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3tw6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiox6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc26t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo65x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1go4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_836ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ybdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vs3x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puq6p"]
+atlas = ExtResource("8_ri22s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khjjx"]
+atlas = ExtResource("8_ri22s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yajxr"]
+atlas = ExtResource("8_ri22s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7sdu"]
+atlas = ExtResource("8_ri22s")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4hgb"]
+atlas = ExtResource("8_ri22s")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrk31"]
+atlas = ExtResource("9_4j38t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvctn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puq6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khjjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yajxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7sdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4hgb")
+}],
+"loop": false,
+"name": &"Completed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrk31")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_wyekq"]
+resource_name = "Completed"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissionAlert:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissionAlert:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 4, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissionAlert:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qopuq"]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissionAlert:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_82417"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissionAlert:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissionAlert:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MissionAlert:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7h3nk"]
+_data = {
+"Completed": SubResource("Animation_wyekq"),
+"Default": SubResource("Animation_qopuq"),
+"RESET": SubResource("Animation_82417")
+}
+
+[node name="Mission" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 147.0
+offset_right = -611.0
+offset_bottom = -262.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_boy8o")
+
+[node name="Info" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.196
+anchor_right = 0.905
+anchor_bottom = 0.5
+offset_left = -1.044
+offset_top = 2.0
+offset_right = -68.045
+offset_bottom = 3.5
+scale = Vector2(2, 2)
+texture = ExtResource("3_n2oki")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 172.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 4
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("4_jeges")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "
+[center] [color=GOLD]Missões[/color] (G)[/center] 
+"
+fit_content = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 40.0
+offset_top = -82.0
+offset_right = 389.0
+offset_bottom = 124.0
+
+[node name="PopUp" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_top = -21.0
+offset_right = 173.0
+offset_bottom = 96.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_masr1")
+patch_margin_left = 53
+patch_margin_top = 54
+patch_margin_right = 38
+patch_margin_bottom = 36
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Body" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 63.0
+offset_right = 1214.0
+offset_bottom = 403.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.87451, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("4_jeges")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+visible_characters_behavior = 1
+
+[node name="Objective" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 146.0
+offset_right = 887.0
+offset_bottom = 262.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.87451, 0.968627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("4_jeges")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+visible_characters_behavior = 1
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 33.0
+offset_right = 1218.0
+offset_bottom = 177.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 0.643137, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("4_jeges")
+theme_override_font_sizes/font_size = 42
+text = "Fim da versão BETA"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+visible_characters_behavior = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(53, 159)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3tw6j")
+autoplay = "default"
+frame_progress = 0.880569
+
+[node name="CheckBox" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(300, 162)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xvctn")
+animation = &"Completed"
+autoplay = "Default"
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+libraries = {
+"": SubResource("AnimationLibrary_7h3nk")
+}
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+bus = &"Ambient"
+
+[node name="MissionAlert" type="Sprite2D" parent="."]
+position = Vector2(16, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("10_0qol5")
+hframes = 5
+
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 24.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_7m01n")
+texture_hover = ExtResource("2_b2l56")
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,0 +1,54 @@
+{
+
+   "Amoras Silvestres":  {
+   "ItemCategory": "Consumivel",
+   "StackSize": 64,
+   "Description": "Nada melhor do que uma porção de frutas saborosas coletadas direto da natureza",
+   "Revigoration": 100,
+   "Regeneration": 1.5 },
+
+   "Abacaxi":  {
+   "ItemCategory": "Consumivel",
+   "StackSize": 64,
+   "Description": "Embora pareça hostil com esses espinhos. É uma saborosa fruta tropical.",
+   "Revigoration": 140,
+   "Regeneration": 1},
+
+   "Ovos":  {
+   "ItemCategory": "Consumivel",
+   "StackSize": 64,
+   "Description": "Será que a mãe Tucano já se deu conta do sumiço de seus ovos?",
+   "Revigoration": 200,
+   "Regeneration": 2},
+
+   "Ramo de Árvore":  {
+   "ItemCategory": "Recurso",
+   "StackSize": 64,
+   "Description": "Pode ser usado para troca, e quem sabe eventualmente ser útil em alguma situação crítica... "},
+
+   "Sementes":  {
+   "ItemCategory": "Recurso",
+   "StackSize": 64,
+   "Description": "Um dia pode vir a conceber uma bela planta ou árvore, mas para fins práticos pode ser comercializada com algum nativo. "},
+
+   "Mel":  {
+   "ItemCategory": "Consumivel",
+   "StackSize": 64,
+   "Description": "O grande tesouro das florestas; o doce e puro néctar das flores; o mel!",
+   "Revigoration": 100,
+   "Regeneration": 3},
+
+   "Amuleto":  {
+   "ItemCategory": "Informacional",
+   "StackSize": 1,
+   "Description": "Uma escultura de madeira fabricada para fins religiosos."},
+
+   "Tocha":  {
+   "ItemCategory": "Ferramenta",
+   "StackSize": 1,
+   "Description": "Fonte portátil de fogo. Útil para prover luz e espantar abelhas"}
+}
+
+
+  
+

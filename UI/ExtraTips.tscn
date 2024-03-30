@@ -1,0 +1,448 @@
+[gd_scene load_steps=14 format=3 uid="uid://da3816vxrffid"]
+
+[ext_resource type="Texture2D" uid="uid://ceim8c3soo277" path="res://UI/Boxes&Background/TutorialTextBox.png" id="1_0sn1w"]
+[ext_resource type="Script" path="res://UI/ExtraTips.gd" id="1_ahhwo"]
+[ext_resource type="Texture2D" uid="uid://djty4iwadmr8n" path="res://UI/PlayerUI/ExitIcon.png" id="2_ss505"]
+[ext_resource type="Texture2D" uid="uid://drqrrelqsi5mh" path="res://UI/PlayerUI/ExitIconHover.png" id="3_mqtdv"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="4_6pm0s"]
+[ext_resource type="Texture2D" uid="uid://cm844wp0t2cpl" path="res://UI/Sprites/Keys/TutorialKey.png" id="6_w3x58"]
+[ext_resource type="Texture2D" uid="uid://chmoyd0xoymqu" path="res://UI/Sprites/LupaSign.png" id="7_i86oy"]
+[ext_resource type="Texture2D" uid="uid://d000q4lg4xpku" path="res://UI/Sprites/Artefacts/ArtefactsButton.png" id="7_pclbs"]
+
+[sub_resource type="Animation" id="Animation_o3q3e"]
+resource_name = "Artefact"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBoxContent/Icons:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBoxContent/ExtraText:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBoxContent/Key/Key1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBoxContent/Key/Key1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(132, 140)]
+}
+
+[sub_resource type="Animation" id="Animation_uusi1"]
+resource_name = "Interactables"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBoxContent/Key/Key1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBoxContent/Key/Key1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBoxContent/Key/Key1:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBoxContent/ExtraText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBoxContent/Icons:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBoxContent/Icons:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_i86oy")]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBoxContent/Icons:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(164, 141)]
+}
+
+[sub_resource type="Animation" id="Animation_pc06y"]
+resource_name = "KnowledgeTree"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBoxContent/ExtraText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBoxContent/Key/Key1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBoxContent/Icons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBoxContent/Key/Key1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 140)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBoxContent/Icons:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_pclbs")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBoxContent/Icons:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(164, 141)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBoxContent/ExtraText:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(144, 120)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBoxContent/Key/Key1:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_movn7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBoxContent/Key/Key1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(132, 140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBoxContent/Key/Key1:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBoxContent/Icons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg25w"]
+_data = {
+"Artefact": SubResource("Animation_o3q3e"),
+"Interactables": SubResource("Animation_uusi1"),
+"KnowledgeTree": SubResource("Animation_pc06y"),
+"RESET": SubResource("Animation_movn7")
+}
+
+[node name="ExtraTips" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 506.0
+offset_bottom = -234.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhwo")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 7.0
+offset_right = 145.0
+offset_bottom = 108.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_0sn1w")
+region_rect = Rect2(0, 3, 48, 28)
+patch_margin_left = 5
+patch_margin_top = 22
+patch_margin_right = 5
+patch_margin_bottom = 23
+axis_stretch_vertical = 1
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 5.0
+offset_right = 283.0
+offset_bottom = 21.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_ss505")
+texture_hover = ExtResource("3_mqtdv")
+
+[node name="TextBoxContent" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 279.0
+offset_bottom = 199.0
+
+[node name="Title" type="Label" parent="TextBoxContent"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -4.0
+offset_right = 984.0
+offset_bottom = 164.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_6pm0s")
+theme_override_font_sizes/font_size = 48
+text = "Artefatos perdidos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="ExtraText" type="Label" parent="TextBoxContent"]
+visible = false
+layout_mode = 0
+offset_left = 113.0
+offset_top = 132.0
+offset_right = 257.0
+offset_bottom = 252.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_6pm0s")
+theme_override_font_sizes/font_size = 32
+text = "ou"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Body" type="RichTextLabel" parent="TextBoxContent"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 1068.0
+offset_bottom = 371.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/line_separation = 8
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_6pm0s")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "
+[center] Ora ora, parece que temos um explorador por aqui! pressione <E> para coletar esse artefato.[/center]"
+visible_characters_behavior = 1
+
+[node name="Key" type="Control" parent="TextBoxContent"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Key1" type="Sprite2D" parent="TextBoxContent/Key"]
+position = Vector2(132, 140)
+scale = Vector2(2, 2)
+texture = ExtResource("6_w3x58")
+hframes = 2
+frame = 1
+
+[node name="Label" type="Label" parent="TextBoxContent/Key/Key1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 33.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_6pm0s")
+theme_override_font_sizes/font_size = 32
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Icons" type="Sprite2D" parent="TextBoxContent"]
+position = Vector2(164, 141)
+scale = Vector2(2, 2)
+texture = ExtResource("7_i86oy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kg25w")
+}
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+bus = &"Ambient"
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,1128 @@
+[gd_scene load_steps=34 format=3 uid="uid://ctovvfa78fa82"]
+
+[ext_resource type="Script" path="res://UI/KnowledgeTree.gd" id="1_2d5g2"]
+[ext_resource type="Texture2D" uid="uid://d000q4lg4xpku" path="res://UI/Sprites/Artefacts/ArtefactsButton.png" id="1_x35oh"]
+[ext_resource type="Texture2D" uid="uid://lxanx1jhotex" path="res://UI/Sprites/Artefacts/ArtefactsButtonHover.png" id="2_3t7gs"]
+[ext_resource type="Shader" path="res://GeneralPrefabs/Resources/Blur.gdshader" id="2_wer51"]
+[ext_resource type="PackedScene" uid="uid://dpy6wjsvruyfq" path="res://UI/ArtefactAlert.tscn" id="3_cxlf7"]
+[ext_resource type="Texture2D" uid="uid://ceim8c3soo277" path="res://UI/Boxes&Background/TutorialTextBox.png" id="5_oaga2"]
+[ext_resource type="Script" path="res://UI/ArtefactSlot.gd" id="7_d6jii"]
+[ext_resource type="Texture2D" uid="uid://dwx8idx4o3gb5" path="res://UI/Sprites/KnowledgeTree/KnowledgeTree.png" id="7_shwif"]
+[ext_resource type="Texture2D" uid="uid://lls35q2bvhr0" path="res://UI/Sprites/Artefacts/ObtainedSlotHover.png" id="7_vqjmp"]
+[ext_resource type="Texture2D" uid="uid://dq80oqily5l7x" path="res://UI/Sprites/Artefacts/ArtefactsSlot.png" id="8_0apco"]
+[ext_resource type="Texture2D" uid="uid://cl72fq07aphn4" path="res://UI/Sprites/Artefacts/OssoAlert.png" id="8_5fohm"]
+[ext_resource type="Texture2D" uid="uid://hhfvgp52sthx" path="res://UI/Sprites/Artefacts/PenaAlert.png" id="11_dvhlj"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="11_wil7f"]
+[ext_resource type="Texture2D" uid="uid://ypj0hl1tkuv3" path="res://UI/Sprites/Artefacts/ArgilaAlert.png" id="12_i88k5"]
+[ext_resource type="Texture2D" uid="uid://2m2470c8ojdk" path="res://UI/Sprites/Artefacts/PepitaDeOuro.png" id="13_7soox"]
+[ext_resource type="Texture2D" uid="uid://djty4iwadmr8n" path="res://UI/PlayerUI/ExitIcon.png" id="13_c23mt"]
+[ext_resource type="Texture2D" uid="uid://drqrrelqsi5mh" path="res://UI/PlayerUI/ExitIconHover.png" id="14_hnku8"]
+[ext_resource type="Texture2D" uid="uid://bm04tpcqpi4sm" path="res://UI/Boxes&Background/InformativeMaterialBackground.png" id="15_c6fcc"]
+[ext_resource type="Script" path="res://UI/InformativeMaterial.gd" id="15_g4jdc"]
+[ext_resource type="Texture2D" uid="uid://cmqw2otn4y1nl" path="res://Cutscene/YesNoButton.png" id="15_yimb8"]
+[ext_resource type="Texture2D" uid="uid://bbvdsn5ipmiwg" path="res://Cutscene/YesNoButtonHover.png" id="16_vch3h"]
+[ext_resource type="Texture2D" uid="uid://drmgakdayunq" path="res://Menu/Sprites/Buttons/ReturnArrowWood.png" id="17_ivfth"]
+[ext_resource type="Texture2D" uid="uid://gjysbc128qcw" path="res://UI/Sprites/Artefacts/InformativeMaterialDecoration/Pena.png" id="17_kbksv"]
+[ext_resource type="Texture2D" uid="uid://bgbaynmwai2ux" path="res://Menu/Sprites/Buttons/ReturnArrrowWoodHover.png" id="18_kkgvh"]
+[ext_resource type="Texture2D" uid="uid://dde3mog2jv63o" path="res://UI/Sprites/Artefacts/IndicationArrow.png" id="26_kkphu"]
+[ext_resource type="Texture2D" uid="uid://chxcxkx4775yq" path="res://UI/Boxes&Background/DefaultTextBox.png" id="27_cv004"]
+[ext_resource type="AudioStream" uid="uid://cm4jtly0l833l" path="res://SoundFx/QuitButton.wav" id="27_q5kn3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0ra4"]
+shader = ExtResource("2_wer51")
+shader_parameter/lod = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p3ga"]
+atlas = ExtResource("26_kkphu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1l1i"]
+atlas = ExtResource("26_kkphu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvnqu"]
+atlas = ExtResource("26_kkphu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nv70"]
+atlas = ExtResource("26_kkphu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s31g1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p3ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1l1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvnqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nv70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="KnowledgeTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2d5g2")
+
+[node name="ButtonIcon" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 213.0
+offset_right = 17.0
+offset_bottom = 229.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_x35oh")
+texture_hover = ExtResource("2_3t7gs")
+
+[node name="Blur" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_w0ra4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ArtefactAlert" parent="." instance=ExtResource("3_cxlf7")]
+visible = false
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 400.0
+offset_bottom = 225.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_oaga2")
+region_rect = Rect2(0, 3, 48, 28)
+patch_margin_left = 5
+patch_margin_top = 23
+patch_margin_right = 5
+patch_margin_bottom = 23
+axis_stretch_vertical = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 42.0
+offset_right = 400.0
+offset_bottom = 225.0
+scale = Vector2(2, 2)
+texture = ExtResource("7_shwif")
+
+[node name="Slots" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slots1" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 306.0
+offset_top = 340.0
+offset_right = 346.0
+offset_bottom = 380.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+artefact = "OSSO"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots1"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_5fohm")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots1"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Osso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots2" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 362.0
+offset_top = 351.0
+offset_right = 402.0
+offset_bottom = 391.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+artefact = "PENA"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots2"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_dvhlj")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots2"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Pena"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots3" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 429.0
+offset_top = 348.0
+offset_right = 469.0
+offset_bottom = 388.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+artefact = "ARGILA"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots3"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_left = 1.0
+offset_right = 40.0
+offset_bottom = 39.0
+texture = ExtResource("12_i88k5")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots3"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Argila"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots4" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 504.0
+offset_top = 337.0
+offset_right = 544.0
+offset_bottom = 377.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+artefact = "PEPITA DE OURO"
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots4"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots4"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 43.0
+offset_right = 289.0
+offset_bottom = 143.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Pepita de ouro"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots5" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 268.0
+offset_top = 210.0
+offset_right = 308.0
+offset_bottom = 250.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots5"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots5"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots6" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 343.0
+offset_top = 218.0
+offset_right = 383.0
+offset_bottom = 258.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots6"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots6"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots7" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 412.0
+offset_top = 216.0
+offset_right = 452.0
+offset_bottom = 256.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots7"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots7"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots8" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 489.0
+offset_top = 212.0
+offset_right = 529.0
+offset_bottom = 252.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots8"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots8"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots9" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 545.0
+offset_top = 159.0
+offset_right = 585.0
+offset_bottom = 199.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots9"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots9"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots10" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 443.0
+offset_top = 152.0
+offset_right = 483.0
+offset_bottom = 192.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots10"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots10"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots11" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 327.0
+offset_top = 152.0
+offset_right = 367.0
+offset_bottom = 192.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots11"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots11"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots12" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 213.0
+offset_top = 170.0
+offset_right = 253.0
+offset_bottom = 210.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots12"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots12"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots13" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 259.0
+offset_top = 99.0
+offset_right = 299.0
+offset_bottom = 139.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots13"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots13"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots14" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 330.0
+offset_top = 68.0
+offset_right = 370.0
+offset_bottom = 108.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots14"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots14"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots15" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 426.0
+offset_top = 68.0
+offset_right = 466.0
+offset_bottom = 108.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots15"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots15"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Slots16" type="TextureButton" parent="Control/Slots"]
+z_index = 1
+layout_mode = 0
+offset_left = 505.0
+offset_top = 90.0
+offset_right = 545.0
+offset_bottom = 130.0
+texture_normal = ExtResource("8_0apco")
+texture_hover = ExtResource("7_vqjmp")
+stretch_mode = 0
+script = ExtResource("7_d6jii")
+locked = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/Slots/Slots16"]
+modulate = Color(1, 1, 1, 0.294118)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_7soox")
+
+[node name="Label" type="Label" parent="Control/Slots/Slots16"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 289.0
+offset_bottom = 139.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Quit" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 29.0
+offset_right = 722.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("13_c23mt")
+texture_hover = ExtResource("14_hnku8")
+
+[node name="InformativeMaterial" type="Control" parent="Control"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_g4jdc")
+
+[node name="Background" type="TextureRect" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -12.0
+offset_right = 402.0
+offset_bottom = 222.0
+scale = Vector2(2, 2)
+texture = ExtResource("15_c6fcc")
+
+[node name="Image" type="TextureRect" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -12.0
+offset_right = 402.0
+offset_bottom = 222.0
+scale = Vector2(2, 2)
+texture = ExtResource("17_kbksv")
+
+[node name="ColorRect" type="ColorRect" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 40.0
+offset_right = 717.0
+offset_bottom = 412.0
+color = Color(0, 0, 0, 0.196078)
+
+[node name="Title" type="Label" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 52.0
+offset_right = 1340.0
+offset_bottom = 172.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 52
+text = "Neolítico"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Body" type="Label" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 137.0
+offset_right = 2180.0
+offset_bottom = 1185.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 0.905882, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 18
+theme_override_constants/line_spacing = 10
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 42
+text = "Apesar de não serem os primeiros humanos, o Homo sapiens veio substituir todas as outras espécies humanas na Terra. 
+Exitem alguns fatores cruciais que possibilitaram o seu triunfo evolutivo.
+
+ * O fogo: Permitiu ao homem cozinhar alimentos, proteger-se
+ de animais hostis e do frio. 
+
+* Comunicação: Com a chamada Revolução Cognitiva, o homem adquiriu habilidades de pensamento e comunicação, que não só 
+permitiram a invenção de formas mais complexas de ferramentas e técnicas de caça; como também conceber ideias mais abstratas como deuses, dinheiro, estado etc "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Time" type="Label" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 106.0
+offset_right = 2590.0
+offset_bottom = 226.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 0.670588, 0.313726, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 58
+text = "(2,500.000 - 10.000 a.C.)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Return" type="TextureButton" parent="Control/InformativeMaterial"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 41.0
+offset_right = 110.0
+offset_bottom = 57.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("17_ivfth")
+texture_hover = ExtResource("18_kkgvh")
+
+[node name="Welcome" type="Control" parent="."]
+visible = false
+z_index = 2
+anchors_preset = 0
+offset_left = 579.0
+offset_top = 33.0
+offset_right = 735.0
+offset_bottom = 244.0
+
+[node name="ColorRect" type="ColorRect" parent="Welcome"]
+layout_mode = 0
+offset_left = -515.0
+offset_top = -2.0
+offset_right = 156.0
+offset_bottom = 384.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Welcome"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 78.0
+offset_bottom = 110.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_oaga2")
+region_rect = Rect2(0, 3, 48, 28)
+patch_margin_left = 5
+patch_margin_top = 23
+patch_margin_right = 5
+patch_margin_bottom = 23
+axis_stretch_vertical = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Welcome"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 38.0
+offset_right = 408.0
+offset_bottom = 433.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 8
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("11_wil7f")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "
+[center]
+Procure pelos artefatos espalhados ao longo do mapa para desbloquear os pergaminhos e expandir seu  [color= CORNFLOWER_BLUE ]conhecimento. [/color] [/center]
+"
+fit_content = true
+scroll_active = false
+
+[node name="Title" type="Label" parent="Welcome"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 10.0
+offset_right = 560.0
+offset_bottom = 202.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 40
+text = "Bem-vindo a Árvore do Conhecimento!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="ConfirmButton" type="TextureButton" parent="Welcome"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 183.0
+offset_right = 76.0
+offset_bottom = 199.0
+scale = Vector2(2, 1.5)
+texture_normal = ExtResource("15_yimb8")
+texture_hover = ExtResource("16_vch3h")
+
+[node name="ButtonLabel" type="Label" parent="Welcome"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 186.0
+offset_right = 269.0
+offset_bottom = 258.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("11_wil7f")
+theme_override_font_sizes/font_size = 36
+text = "Certo"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="FirstArtefact" type="Control" parent="."]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="FirstArtefact"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 735.0
+offset_bottom = 418.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="FirstArtefact"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 175.0
+offset_right = 399.0
+offset_bottom = 242.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_oaga2")
+region_rect = Rect2(0, 3, 48, 28)
+patch_margin_left = 5
+patch_margin_top = 23
+patch_margin_right = 5
+patch_margin_bottom = 23
+axis_stretch_vertical = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FirstArtefact"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 185.0
+offset_right = 1477.0
+offset_bottom = 633.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 12
+theme_override_constants/outline_size = 14
+theme_override_fonts/normal_font = ExtResource("11_wil7f")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]
+Muito bem, você encontrou um artefato! Isso aumenta seu  [color= CORNFLOWER_BLUE ]conhecimento[/color] e te dá acesso a um [color=sandy brown ]pergaminho.[/color] 
+
+Clique no artefato para lê-lo.
+
+[/center]"
+scroll_active = false
+
+[node name="Arrow" type="AnimatedSprite2D" parent="FirstArtefact"]
+position = Vector2(346, 367)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s31g1")
+
+[node name="Info" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.548
+anchor_top = 1.155
+anchor_right = 1.647
+anchor_bottom = 1.911
+offset_left = 473.4
+offset_top = -317.75
+offset_right = -1204.6
+offset_bottom = -629.95
+scale = Vector2(2, 2)
+texture = ExtResource("27_cv004")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 207.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 4
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("11_wil7f")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "
+[center]Árvore do [color=CORNFLOWER_BLUE]conhecimento[/color] (T)[/center] 
+"
+fit_content = true
+scroll_active = false
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_q5kn3")
+bus = &"Ambient"
+
+[connection signal="mouse_entered" from="ButtonIcon" to="." method="_on_button_icon_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonIcon" to="." method="_on_button_icon_mouse_exited"]
+[connection signal="pressed" from="ButtonIcon" to="." method="_on_button_icon_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/InformativeMaterial/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Welcome/ConfirmButton" to="." method="_on_confirm_button_pressed"]

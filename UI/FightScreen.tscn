@@ -1,0 +1,411 @@
+[gd_scene load_steps=29 format=3 uid="uid://6df4mjaja2sj"]
+
+[ext_resource type="Script" path="res://UI/FightScreen.gd" id="1_cy1av"]
+[ext_resource type="Texture2D" uid="uid://v2qe8jj6pl46" path="res://UI/Sprites/Fights/JacareBackground.png" id="2_xnq1b"]
+[ext_resource type="Texture2D" uid="uid://cejxh0ae7gosv" path="res://UI/Sprites/Fights/Characters/Jacare.png" id="3_tc7uj"]
+[ext_resource type="Texture2D" uid="uid://gfcafhownhfh" path="res://UI/Sprites/Fights/DialogueBox.png" id="4_m4xut"]
+[ext_resource type="FontFile" uid="uid://dwxlmw5f8w78u" path="res://Fonts/CordelEncarnado.otf" id="5_nchrr"]
+[ext_resource type="Texture2D" uid="uid://ckci8tmbce6e8" path="res://UI/Sprites/Fights/QuestionBackground.png" id="6_v1eyh"]
+[ext_resource type="Texture2D" uid="uid://b3kht16v3vqqi" path="res://UI/Sprites/Fights/Clock.png" id="7_tp7es"]
+[ext_resource type="AudioStream" uid="uid://b0brd6b73ra8t" path="res://SoundFx/ClockClick.wav" id="8_6cg4c"]
+[ext_resource type="AudioStream" uid="uid://tp2jxbunuao3" path="res://Soundtrack/XoteDeBatalha.ogg" id="9_14x28"]
+
+[sub_resource type="Animation" id="Animation_xoe41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_2diut"]
+resource_name = "jacare"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_tc7uj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8s80"]
+_data = {
+"RESET": SubResource("Animation_xoe41"),
+"jacare": SubResource("Animation_2diut")
+}
+
+[sub_resource type="Animation" id="Animation_2um0d"]
+resource_name = "Entering"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_m4xut")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueBox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_writing"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ytw7c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBox:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dte6b"]
+_data = {
+"Entering": SubResource("Animation_2um0d"),
+"RESET": SubResource("Animation_ytw7c")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufrk6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ti68"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xa8n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo3xm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpxr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4b50q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_omdix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egkoc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjkmd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a2o37"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mto2j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xs016"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0tymt"]
+
+[node name="FightScreen" type="Control"]
+z_index = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cy1av")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_xnq1b")
+
+[node name="EnemyAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r8s80")
+}
+
+[node name="BoxAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dte6b")
+}
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(382, 59)
+scale = Vector2(2, 2)
+texture = ExtResource("3_tc7uj")
+hframes = 4
+frame = 1
+
+[node name="DialogueBox" type="Sprite2D" parent="."]
+position = Vector2(401, 350)
+scale = Vector2(2, 2)
+texture = ExtResource("4_m4xut")
+hframes = 8
+frame = 1
+
+[node name="Body" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 285.0
+offset_right = 644.0
+offset_bottom = 419.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_nchrr")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+fit_content = true
+visible_characters_behavior = 1
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 305.0
+offset_right = 333.0
+offset_bottom = 331.0
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button3")
+theme_override_colors/font_color = Color(0.968627, 0.819608, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.607843, 0.380392, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.541176, 0.286275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_nchrr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ufrk6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ti68")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7xa8n")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yo3xm")
+text = "Tigre dente de sabre"
+
+[node name="Button2" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 305.0
+offset_right = 568.0
+offset_bottom = 331.0
+focus_neighbor_left = NodePath("../Button1")
+focus_neighbor_bottom = NodePath("../Button4")
+theme_override_colors/font_color = Color(0.968627, 0.819608, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.607843, 0.380392, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.541176, 0.286275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_nchrr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ufrk6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dpxr8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4b50q")
+theme_override_styles/focus = SubResource("StyleBoxTexture_omdix")
+text = "Mamute"
+
+[node name="Button3" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 360.0
+offset_right = 333.0
+offset_bottom = 386.0
+focus_neighbor_top = NodePath("../Button1")
+focus_neighbor_right = NodePath("../Button4")
+theme_override_colors/font_color = Color(0.968627, 0.819608, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.607843, 0.380392, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.541176, 0.286275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_nchrr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ufrk6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_egkoc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pjkmd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_a2o37")
+text = " * Provocar"
+
+[node name="Button4" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 360.0
+offset_right = 568.0
+offset_bottom = 386.0
+focus_neighbor_left = NodePath("../Button3")
+focus_neighbor_top = NodePath("../Button2")
+theme_override_colors/font_color = Color(0.968627, 0.819608, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.607843, 0.380392, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.541176, 0.286275, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_nchrr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ufrk6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mto2j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xs016")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0tymt")
+text = " * Provocar"
+
+[node name="Quiz" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Question" type="NinePatchRect" parent="Quiz"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 25.0
+offset_right = 402.0
+offset_bottom = 125.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_v1eyh")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Clock" type="Sprite2D" parent="Quiz"]
+position = Vector2(689, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("7_tp7es")
+
+[node name="TimerLabel" type="Label" parent="Quiz"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 29.0
+offset_right = 708.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(1, 0.894118, 0.478431, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_nchrr")
+theme_override_font_sizes/font_size = 26
+text = "30"
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1
+
+[node name="Timer" type="Timer" parent="Quiz"]
+
+[node name="Body" type="RichTextLabel" parent="Quiz"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 51.0
+offset_right = 655.0
+offset_bottom = 186.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_nchrr")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = " Como você se atreve a dizer isso? minha espécie está nessas terras a milhares de anos!!"
+fit_content = true
+visible_characters_behavior = 1
+
+[node name="ClockSound" type="AudioStreamPlayer" parent="Quiz"]
+stream = ExtResource("8_6cg4c")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_14x28")
+
+[connection signal="timeout" from="Quiz/Timer" to="." method="_on_timer_timeout"]

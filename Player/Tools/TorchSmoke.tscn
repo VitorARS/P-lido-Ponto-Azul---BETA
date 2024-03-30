@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvh3upneqb7vr"]
+
+[ext_resource type="Script" path="res://Player/Tools/TorchSmoke.gd" id="1_3p1l6"]
+[ext_resource type="Texture2D" uid="uid://cpk8gfr8ory2c" path="res://Player/Tools/FireSmoke.png" id="2_jd7i5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5rpy"]
+radius = 14.0053
+height = 30.9718
+
+[sub_resource type="Animation" id="Animation_g0suf"]
+resource_name = "default"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_jd7i5"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [14.0053, 16.5115, 18.9984, 22.4917, 24.5044, 28.0105, 35.0099]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape:height")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [30.9718, 35.9714, 40.971, 48.9703, 53.9827, 70.0327]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p40pg"]
+_data = {
+"default": SubResource("Animation_g0suf")
+}
+
+[node name="TorchSmoke" type="Area2D"]
+z_index = 2
+position = Vector2(0, -21)
+scale = Vector2(2, 2)
+collision_layer = 256
+collision_mask = 2048
+script = ExtResource("1_3p1l6")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_jd7i5")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -3.5)
+rotation = -1.58362
+shape = SubResource("CapsuleShape2D_l5rpy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_p40pg")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=16 format=3 uid="uid://ysst3xphu85r"]
+
+[ext_resource type="Texture2D" uid="uid://dxh2t2o4gjek6" path="res://PreHistory/World/Mission/Bonfire.png" id="1_r0tbx"]
+[ext_resource type="Texture2D" uid="uid://btqr07hmlfn7h" path="res://PreHistory/World/Mission/BonfireSmoke.png" id="2_rw4ap"]
+[ext_resource type="Script" path="res://PreHistory/World/Mission/Bonfire.gd" id="3_titbk"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(0, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(75, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(150, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(225, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(300, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(375, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(450, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(525, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(600, 0, 75, 75)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("2_rw4ap")
+region = Rect2(675, 0, 75, 75)
+
+[sub_resource type="SpriteFrames" id="11"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.5
+}]
+
+[sub_resource type="CircleShape2D" id="12"]
+radius = 63.502
+
+[node name="Bonfire" type="StaticBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("3_titbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, 22)
+texture = ExtResource("1_r0tbx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(1.05, 47.95)
+polygon = PackedVector2Array(-1, -23, -3, -17.5, 1, -15, 8.5, -15, 11.5, -13, 20, -15, 24, -20, 21.5, -28.5, 8.5, -33.5, 0.5, -31)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(1.05, 47.95)
+polygon = PackedVector2Array(-24.55, -33.95, -30.5, -32, -23.05, -7.45, -24.05, -4.95, -21.05, -1.45, -17.55, -4.45)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(1.05, 47.95)
+polygon = PackedVector2Array(-23.05, -47.45, -19.5, -42.5, -16, -41.5, -12, -45.5, 9.5, -44.5, 22.95, -46.45, 6.45, -49.45, -18.05, -48.95)
+
+[node name="Smoke" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 20)
+sprite_frames = SubResource("11")
+autoplay = "default"
+frame = 6
+frame_progress = 0.832436
+
+[node name="Bonfire" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bonfire"]
+position = Vector2(0.5, 21)
+shape = SubResource("12")
+
+[connection signal="body_entered" from="Bonfire" to="." method="_on_bonfire_body_entered"]

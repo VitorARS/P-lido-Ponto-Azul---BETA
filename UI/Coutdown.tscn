@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgrlhe6s47use"]
+
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="1_okj2k"]
+[ext_resource type="Script" path="res://UI/Coutdown.gd" id="1_rkgqp"]
+
+[node name="Coutdown" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rkgqp")
+
+[node name="Years" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 674.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.196078, 0.85098, 0.121569, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("1_okj2k")
+theme_override_font_sizes/font_size = 45
+text = "12.000 "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.2, 0.388235, 0.631373, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("1_okj2k")
+theme_override_font_sizes/font_size = 45
+text = "Brasil        anos atrás"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.075
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

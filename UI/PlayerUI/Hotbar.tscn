@@ -1,0 +1,236 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdja2bf3b0iio"]
+
+[ext_resource type="Script" path="res://UI/PlayerUI/Hotbar.gd" id="1_3sxxk"]
+[ext_resource type="Texture2D" uid="uid://iyxua2wjglfn" path="res://UI/Boxes&Background/hotbar.png" id="1_cp64n"]
+[ext_resource type="Script" path="res://UI/PlayerUI/Slot.gd" id="3_tyx0x"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="4_j32a3"]
+[ext_resource type="Texture2D" uid="uid://chxcxkx4775yq" path="res://UI/Boxes&Background/MissionTextbox.png" id="5_euvut"]
+[ext_resource type="Texture2D" uid="uid://cjbti1cc4po34" path="res://UI/PlayerUI/SwordIcon.png" id="6_jfwt3"]
+[ext_resource type="Texture2D" uid="uid://dokhp1hhpfclm" path="res://UI/PlayerUI/StaminaIcon.png" id="7_i5gvm"]
+[ext_resource type="Texture2D" uid="uid://dppc18ogiipth" path="res://UI/PlayerUI/HeartUIFull.png" id="8_7buol"]
+[ext_resource type="AudioStream" uid="uid://bhb2tw1x8tggn" path="res://SoundFx/Hotbar.wav" id="9_nk0qd"]
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -512.0
+offset_bottom = -403.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3sxxk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 24.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_cp64n")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 282.0
+offset_bottom = 42.0
+theme_override_constants/h_separation = -2
+columns = 8
+
+[node name="HotbarSlot1" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot2" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot3" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot4" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot5" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot6" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot7" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="HotbarSlot8" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(36, 32)
+layout_mode = 2
+script = ExtResource("3_tyx0x")
+
+[node name="ActiveItemLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -13.0
+offset_right = 627.0
+offset_bottom = 26.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(1, 0.443137, 0.258824, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("4_j32a3")
+theme_override_font_sizes/font_size = 36
+text = "Ovos"
+vertical_alignment = 1
+
+[node name="Description" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -72.0
+offset_top = -78.0
+offset_right = 24.0
+offset_bottom = -24.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_euvut")
+region_rect = Rect2(2, 2, 45, 48)
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Body" type="Label" parent="Description"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 14.0
+offset_right = 727.0
+offset_bottom = 182.0
+scale = Vector2(0.125, 0.125)
+theme_override_colors/font_color = Color(1, 0.8, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("4_j32a3")
+theme_override_font_sizes/font_size = 28
+text = "Nada melhor do que uma porção de frutas saborosas coletadas direto da natureza"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="ItemName" type="Label" parent="Description"]
+layout_mode = 0
+offset_left = 1.5
+offset_top = 3.0
+offset_right = 725.5
+offset_bottom = 91.0
+scale = Vector2(0.125, 0.125)
+theme_override_colors/font_color = Color(0.8, 0.45098, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("4_j32a3")
+theme_override_font_sizes/font_size = 36
+text = "Amoras Silvestres:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Sword" type="TextureRect" parent="Description"]
+visible = false
+layout_mode = 0
+offset_left = 25.5
+offset_top = 35.5
+offset_right = 41.5
+offset_bottom = 51.5
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_jfwt3")
+
+[node name="Label" type="Label" parent="Description/Sword"]
+layout_mode = 0
+offset_left = 12.6666
+offset_top = -3.99988
+offset_right = 331.667
+offset_bottom = 156.0
+scale = Vector2(0.156, 0.156)
+theme_override_colors/font_color = Color(1, 0.8, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("4_j32a3")
+theme_override_font_sizes/font_size = 28
+text = "+ 20% de estamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Stamina" type="TextureRect" parent="Description"]
+layout_mode = 0
+offset_left = 46.5
+offset_top = 35.5
+offset_right = 62.5
+offset_bottom = 51.5
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_i5gvm")
+
+[node name="Label" type="Label" parent="Description/Stamina"]
+layout_mode = 0
+offset_left = 9.3335
+offset_top = -3.99988
+offset_right = 328.333
+offset_bottom = 156.0
+scale = Vector2(0.156, 0.156)
+theme_override_colors/font_color = Color(1, 0.8, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("4_j32a3")
+theme_override_font_sizes/font_size = 28
+text = "+ 20% de estamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Heart" type="TextureRect" parent="Description"]
+layout_mode = 0
+offset_left = 5.5
+offset_top = 35.5
+offset_right = 21.5
+offset_bottom = 51.5
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_7buol")
+
+[node name="Label" type="Label" parent="Description/Heart"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -4.0
+offset_right = 250.0
+offset_bottom = 156.0
+scale = Vector2(0.156, 0.156)
+theme_override_colors/font_color = Color(1, 0.8, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_constants/line_spacing = 6
+theme_override_fonts/font = ExtResource("4_j32a3")
+theme_override_font_sizes/font_size = 28
+text = "+ 20% de saude"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_nk0qd")
+volume_db = -6.0

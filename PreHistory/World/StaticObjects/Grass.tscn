@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://bfdl8p7bu0pho"]
+
+[ext_resource type="Script" path="res://PreHistory/World/StaticObjects/Grass.gd" id="1_h6d6g"]
+[ext_resource type="Texture2D" uid="uid://cpv7pqcp214wh" path="res://PreHistory/World/Trees/MediumShadow.png" id="1_wg6iw"]
+[ext_resource type="Texture2D" uid="uid://wcb12cdluval" path="res://PreHistory/World/StaticObjects/grass.png" id="2_c2grq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfba8"]
+atlas = ExtResource("2_c2grq")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcdhq"]
+atlas = ExtResource("2_c2grq")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksmp5"]
+atlas = ExtResource("2_c2grq")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnyc7"]
+atlas = ExtResource("2_c2grq")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eb3wt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfba8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcdhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksmp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnyc7")
+}],
+"loop": false,
+"name": &"Moving",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_465a5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h0b06"]
+radius = 13.0
+height = 26.0
+
+[node name="Grass" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_h6d6g")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-3, -7)
+scale = Vector2(0.430108, 1.24324)
+texture = ExtResource("1_wg6iw")
+
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_eb3wt")
+animation = &"Moving"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -18)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 5)
+shape = SubResource("CircleShape2D_465a5")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, -19)
+collision_layer = 1024
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-2, 6)
+shape = SubResource("CapsuleShape2D_h0b06")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

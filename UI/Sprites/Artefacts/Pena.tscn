@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=3 uid="uid://cl177duvuw82r"]
+
+[ext_resource type="Script" path="res://PreHistory/World/Artefacts/Artefact.gd" id="1_i6236"]
+[ext_resource type="Texture2D" uid="uid://hsu3jslf3uj7" path="res://GeneralPrefabs/plus_sign_blue.png" id="2_ai138"]
+[ext_resource type="PackedScene" path="res://GeneralPrefabs/Mobs/Hurtbox.tscn" id="3_pr5du"]
+[ext_resource type="Texture2D" uid="uid://b0fjm7rq2qs56" path="res://PreHistory/World/Artefacts/Pena.png" id="4_h5fqv"]
+[ext_resource type="Texture2D" uid="uid://c7l64rssp881j" path="res://PreHistory/World/Artefacts/PenaBlink.png" id="4_v1m2k"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 16.4924
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 16.2147
+
+[sub_resource type="Animation" id="Animation_byq72"]
+resource_name = "Pena"
+length = 2.0
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nq3ja"]
+_data = {
+"Pena": SubResource("Animation_byq72")
+}
+
+[sub_resource type="Animation" id="Animation_nqen2"]
+resource_name = "Blink"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Blink:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Blink:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_ee7gp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Blink:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcc6m"]
+_data = {
+"Blink": SubResource("Animation_nqen2"),
+"RESET": SubResource("Animation_ee7gp")
+}
+
+[node name="Pena" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_i6236")
+index = 1
+has_anim = true
+
+[node name="detect_zone" type="Area2D" parent="."]
+visible = false
+position = Vector2(5, 11)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_zone"]
+position = Vector2(0, 1)
+shape = SubResource("1")
+
+[node name="Plus" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14.8277, -2.17226)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ai138")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_pr5du")]
+position = Vector2(5.82774, 12.8277)
+collision_layer = 8192
+collision_mask = 16384
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-1, -1)
+shape = SubResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 13)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_h5fqv")
+hframes = 5
+
+[node name="Blink" type="Sprite2D" parent="."]
+position = Vector2(5, 13)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_v1m2k")
+hframes = 7
+frame = 1
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nq3ja")
+}
+
+[node name="BlinkAnim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Anim")
+libraries = {
+"": SubResource("AnimationLibrary_hcc6m")
+}
+
+[connection signal="body_entered" from="detect_zone" to="." method="_on_detect_zone_body_entered"]
+[connection signal="body_exited" from="detect_zone" to="." method="_on_detect_zone_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
+[editable path="Hurtbox"]

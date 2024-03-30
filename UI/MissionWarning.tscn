@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccdy150bneipj"]
+
+[ext_resource type="Texture2D" uid="uid://bptcjyc7maeo1" path="res://PreHistory/World/Mission/DialogueBox.png" id="1_eaqqf"]
+[ext_resource type="Script" path="res://UI/MissionWarning.gd" id="1_rtyix"]
+[ext_resource type="Texture2D" uid="uid://cbs741tq7jgre" path="res://GeneralPrefabs/Dialogue/Portraits/AnajéHappy.png" id="2_d6vhk"]
+[ext_resource type="FontFile" uid="uid://bfx3ahu82jqgo" path="res://Fonts/PressStart2P.ttf" id="3_fkvsf"]
+
+[node name="MissionWarning" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_top = 330.0
+offset_right = 800.0
+offset_bottom = 450.0
+script = ExtResource("1_rtyix")
+
+[node name="DialogueBox" type="Sprite2D" parent="."]
+position = Vector2(400, 25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_eaqqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueBox"]
+position = Vector2(-74, 1)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_d6vhk")
+
+[node name="Label" type="Label" parent="DialogueBox"]
+offset_left = -45.0
+offset_top = -18.0
+offset_right = 675.0
+offset_bottom = 65.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.956863, 0.843137, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.0431373, 0.0156863, 0.0196078, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_fkvsf")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 2
+visible_characters_behavior = 1

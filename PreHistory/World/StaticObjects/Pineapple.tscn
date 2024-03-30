@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://cema80134c5r0"]
+
+[ext_resource type="Script" path="res://PreHistory/World/StaticObjects/Bush.gd" id="1_3crqy"]
+[ext_resource type="Texture2D" uid="uid://cpv7pqcp214wh" path="res://PreHistory/World/Trees/MediumShadow.png" id="2_40x4l"]
+[ext_resource type="Texture2D" uid="uid://b6h48gfo0fsh8" path="res://PreHistory/World/StaticObjects/Pineapple.png" id="3_xd4db"]
+[ext_resource type="Texture2D" uid="uid://bly3j48uvjxdr" path="res://GeneralPrefabs/plus_sign.png" id="4_iw56s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sgdc"]
+radius = 9.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eovdm"]
+radius = 36.0555
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf6l2"]
+radius = 35.0571
+
+[node name="Pineapple" type="StaticBody2D"]
+script = ExtResource("1_3crqy")
+empty_path = "res://PreHistory/World/StaticObjects/PineappleEmpty.png"
+default_path = "res://PreHistory/World/StaticObjects/Pineapple.png"
+item = "Abacaxi"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-1.69375, -5.01)
+scale = Vector2(0.4, 1.2)
+texture = ExtResource("2_40x4l")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(2, 2)
+texture = ExtResource("3_xd4db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0sgdc")
+
+[node name="DetectionZone" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+visible = false
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_eovdm")
+
+[node name="CollectHurtbox" type="Area2D" parent="."]
+position = Vector2(0, -30)
+collision_layer = 8192
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectHurtbox"]
+visible = false
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_lf6l2")
+
+[node name="Plus" type="Sprite2D" parent="."]
+position = Vector2(15, -25)
+scale = Vector2(2, 2)
+texture = ExtResource("4_iw56s")
+
+[node name="Reset" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="area_entered" from="CollectHurtbox" to="." method="_on_collect_hurtbox_area_entered"]
+[connection signal="timeout" from="Reset" to="." method="_on_reset_timeout"]
